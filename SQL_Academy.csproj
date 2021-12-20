@@ -65,6 +65,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClassWork\dec_16\dz1.sql" />
+    <Content Include="ClassWork\dec_16\dz1_base.sql" />
     <Content Include="Database_Academy_01.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -76,6 +78,12 @@
     <Content Include="Migration\02_Faculties.sql" />
     <Content Include="Migration\03_Groups.sql" />
     <Content Include="Migration\04_Teachers.sql" />
+    <Content Include="Migration\05_Statistic.sql" />
+    <Content Include="Seeds\Academy_v1\dbo.Departments.data.sql" />
+    <Content Include="Seeds\Academy_v1\dbo.Faculties.data.sql" />
+    <Content Include="Seeds\Academy_v1\dbo.Groups.data.sql" />
+    <Content Include="Seeds\Academy_v1\dbo.Teachers.data.sql" />
+    <Content Include="Seeds\Games\Seeds.sql" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -88,6 +96,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Requests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

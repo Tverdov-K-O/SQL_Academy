@@ -1,9 +1,19 @@
-﻿CREATE TABLE [dbo].[Teachers]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	[EmploymentDate] DATE NOT NULL,/*Не может быть меньше 01.01.1990.*/
-	[Name] NVARCHAR(MAX) NOT NULL,/*Не может быть пустым*/
-	[Premium] MONEY NOT NULL DEFAULT 0,/*Не может быть меньше 0.*/
-	[Salary] MONEY NOT NULL,/*Не может быть меньше либо равно 0.*/
-	[Surname] NVARCHAR(MAX) NOT NULL,/*Не может быть пустым.*/
-)
+﻿CREATE TABLE [dbo].[Teachers] (
+    [Id]             INT            IDENTITY (1, 1) NOT NULL,
+    [EmploymentDate] DATE           NOT NULL,
+    [IsAssistant]    BIT            DEFAULT ((0)) NOT NULL,
+    [IsProfessor]    BIT            DEFAULT ((0)) NOT NULL,
+    [Name]           NVARCHAR (MAX) NOT NULL,
+    [Position]       NVARCHAR (MAX) NOT NULL,
+    [Premium]        MONEY          DEFAULT ((0)) NOT NULL,
+    [Salary]         MONEY          NOT NULL,
+    [Surname]        NVARCHAR (MAX) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CHECK ([EmploymentDate]>='1990-01-01'),
+    CHECK ([Name]<>''),
+    CHECK ([Position]<>''),
+    CHECK ([Premium]>=(0)),
+    CHECK ([Salary]>(0)),
+    CHECK ([Surname]<>'')
+);
+

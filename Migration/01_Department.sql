@@ -1,7 +1,9 @@
-﻿CREATE TABLE [dbo].[Departments]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	[Financing] MONEY NOT NULL DEFAULT 0,/*Не может быть меньше 0.*/
-	[Name] NVARCHAR(100) NOT NULL /*Не может быть пустым - Должно быть уникальным.*/
-	
-)
+﻿CREATE TABLE [dbo].[Departments] (
+    [Id]        INT            IDENTITY (1, 1) NOT NULL,
+    [Financing] MONEY          DEFAULT ((0)) NOT NULL,
+    [Name]      NVARCHAR (100) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    UNIQUE NONCLUSTERED ([Name] ASC),
+    CHECK ([Financing]>=(0)),
+    CHECK ([Name]<>'')
+);
